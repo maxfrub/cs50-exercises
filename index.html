@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+                let correct = document.querySelector('.yes');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#response1').innerHTML = 'Correct!';
+                });
+
+                let incorrects = document.querySelectorAll('.no')
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function() {
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.querySelector('#response1').innerHTML = 'Incorrect!';
+                    });
+                }
+
+                document.querySelector('#submit-button').addEventListener('click', function() {
+                    let input = document.querySelector('#text');
+                    if (input.value.toLowerCase() == 'madrid')
+                    {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#response2').innerHTML = 'Correct!';
+                    }
+                    else
+                    {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#response2').innerHTML = 'False!';
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                 <h3>What is the total population of Spain currently?</h3>
+                 <button class="no">60.000.000 - 65.000.000</button>
+                 <button class="no">30.000.000 - 35.000.000</button>
+                 <button class="yes">45.000.000 - 50.000.000</button>
+                 <button class="no">55.000.000 - 60.000.000</button>
+
+                 <p id="response1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                 <h3>What is the capital of Madird?</h3>
+                <input type="text" id="text">
+                <input type="submit" value="Check answer" id="submit-button">
+                <p id="response2"></p>
+            </div>
+        </div>
+    </body>
+</html>
